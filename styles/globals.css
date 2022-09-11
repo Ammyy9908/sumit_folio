@@ -1,3 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: Eblque-Semi-Bold;
+  src: url('/fonts/Epilogue/SemiBold.ttf');
+}
+
+@font-face {
+  font-family: Eblque-Regular;
+  src: url('/fonts/Epilogue/Regular.ttf');
+}
+
+
+
+
+
+:root{
+  --black:#2D2D2D;
+  --body-text:17px;
+  --heading-level-3:27px;
+}
+
+
+*{
+  transition: all .3s ease-in-out;
+}
+
 html,
 body {
   padding: 0;

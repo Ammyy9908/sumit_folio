@@ -1,0 +1,13 @@
+.footer{
+    width:85%;
+    margin: 0 auto;
+}
+
+.footer h3{
+    font-family: Eblque-Semi-Bold, sans-serif;
+}
+.footer p{
+    font-family: Eblque-Regular, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+}
