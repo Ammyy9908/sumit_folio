@@ -30,7 +30,7 @@ function Footer() {
         <form className="contact-footer flex flex-col gap-3 items-start">
             <SmallField value={name} setValue={setName} type="text" placeholder="Name" name="Name"/>
             <SmallField value={email} setValue={setEmail} type="email" placeholder="Email" name="Email"/>
-            <LargeField value={message} setValue={setMessage}  placeholder="Message" name="message"/>
+            <LargeField value={message} setValue={setMessage}  placeholder="Type your message here" name="message"/>
             <input type="submit" value="Submit" className='px-3 py-2 bg-black/80 dark:bg-white dark:text-black text-white w-32 h-12'/>
         </form>
     </footer>
