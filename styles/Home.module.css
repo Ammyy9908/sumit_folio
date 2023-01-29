@@ -1,15 +1,17 @@
-.hero_section_wrapper,.brands_section,.skill_section,.work_section{
-  width: 80%;
+.hero_section_wrapper,
+.brands_section,
+.skill_section,
+.work_section {
+  width: 90%;
   color: var(--black);
 }
 
-.hero_section_wrapper  p{
+.hero_section_wrapper p {
   font-size: var(--body-text);
   text-align: center;
 }
 
-
-.hero_section_wrapper h1{
+.hero_section_wrapper h1 {
   font-size: 65px;
   line-height: 62px;
   text-align: center;
@@ -18,25 +20,33 @@
 .skill_component {
   color: var(--black);
 }
-.skill_component h3{
+.skill_component h3 {
   font-family: Eblque-Semi-Bold, sans-serif;
   font-size: 27px;
 }
 .skill_component p {
-font-family: Eblque-Regular, sans-serif;
-font-size: 14px;
+  font-family: Eblque-Regular, sans-serif;
+  font-size: 14px;
 }
 
+@media screen and (min-width: 768px) {
+  .hero_section_wrapper h1 {
+    font-size: 80px;
+    line-height: 102px;
+    text-align: left;
+  }
+  .hero_section_wrapper p {
+    text-align: left;
+  }
+}
 
-
-@media screen and (min-width:768px){
-  .hero_section_wrapper h1{
+@media screen and (min-width: 1024px) {
+  .hero_section_wrapper h1 {
     font-size: 100px;
     line-height: 102px;
     text-align: left;
   }
-  .hero_section_wrapper  p{
+  .hero_section_wrapper p {
     text-align: left;
   }
 }
-

@@ -42,7 +42,7 @@ function WorkComponent({ image, title, description }) {
         <img
           src={image}
           alt="work_image"
-          className="w-full h-full  absolute inset-0 hover:scale-110 rounded-md"
+          className="w-full h-full  absolute inset-0 hover:scale-110 rounded-md object-cover"
         />
       </div>
       <div className="work_body w-full text-left py-3">
@@ -62,7 +62,15 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Sumit</title>
-        <meta name="description" content="Made in NextJs." />
+        <meta
+          name="description"
+          content="Sumit Bighaniya Frontend Web Develoepr based in Bangalore,India"
+        />
+        <meta
+          name="keywords"
+          content="HTML, CSS, JavaScript,Sumit Website,Netflix Web Clones,Frontend Web developer Bangalore,Web Clones ReactJS Developer Bangalore,India,Instagram Clone ReactJS,NextJs,Web developer in Bangalore,Sumit Bighaniya,Sumit MVIT Bangalore"
+        />
+        <meta name="author" content="Sumit Kumar" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -99,65 +107,63 @@ export default function Home() {
               }}
               className="w-full md:w-[453px] dark:text-white/90"
             >
-              Fontend web developer based in Bangalore,India 🇮🇳.
+              I help businesses and companies reach their goals by designing
+              user-centric digital products & interactive experiences.
             </p>
             <div className="my-3 flex items-center gap-3  justify-center md:justify-start">
               <a
                 href="https://github.com/ammyy9908"
                 target={"_blank"}
                 rel="noreferrer"
-                className="w-12 h-12 bg-black dark:bg-white dark:text-black  z-50 text-white rounded-full flex items-center justify-center transition-all "
+                className="group w-12 h-12 bg-black dark:bg-white dark:text-black  z-50 text-white rounded-full flex items-center justify-center transition-all "
               >
-                <AiFillGithub />
+                <span className="group-hover:text-2xl">
+                  <AiFillGithub />
+                </span>
               </a>
               <a
                 href="https://www.linkedin.com/in/sumitbighaniya/"
                 target={"_blank"}
                 rel="noreferrer"
-                className="w-12 h-12 bg-blue-700 dark:bg-white dark:text-black  z-50 text-white rounded-full flex items-center justify-center transition-all "
+                className="group w-12 h-12 bg-blue-700  dark:text-white  z-50 text-white rounded-full flex items-center justify-center transition-all "
               >
-                <BsLinkedin />
+                <span className="group-hover:text-2xl">
+                  <BsLinkedin />
+                </span>
               </a>
               <a
                 href="https://linktr.ee/sumitkumarbig"
                 target={"_blank"}
                 rel="noreferrer"
-                className="w-12 h-12 bg-green-500 dark:bg-white dark:text-black  z-50 text-white rounded-full flex items-center justify-center transition-all "
+                className="group w-12 h-12 bg-green-500 dark:bg-white dark:text-black  z-50 text-white rounded-full flex items-center justify-center transition-all "
               >
-                <SiLinktree />
+                <span className="group-hover:text-2xl">
+                  <SiLinktree />
+                </span>
               </a>
               <a
                 href="https://wa.me/917406644532?text=Hi 🥳"
                 target={"_blank"}
                 rel="noreferrer"
-                className="w-12 h-12 bg-green-600   z-50 text-white rounded-full flex items-center justify-center  transition-all "
+                className="group w-12 h-12 bg-green-600   z-50 text-white rounded-full flex items-center justify-center  transition-all "
               >
-                <AiOutlineWhatsApp />
+                <span className="group-hover:text-2xl">
+                  <AiOutlineWhatsApp />
+                </span>
               </a>
               <a
                 href="https://instagram.com/sumitbighaniya"
                 target={"_blank"}
                 rel="noreferrer"
-                className="w-12 h-12 bg-red-500   z-50 text-white rounded-full flex items-center justify-center  transition-all "
+                className="group w-12 h-12 bg-red-500   z-50 text-white rounded-full flex items-center justify-center  transition-all "
               >
-                <AiFillInstagram />
+                <span className="group-hover:text-2xl">
+                  <AiFillInstagram />
+                </span>
               </a>
-              {/* <a
-                href="https://www.buymeacoffee.com/sb78639V"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image
-                  src="https://cdn.buymeacoffee.com/buttons/default-yellow.png"
-                  alt="Buy Me A Coffee"
-                  height="41"
-                  width="174"
-                  className="rounded shadow-2xl"
-                />
-              </a> */}
             </div>
           </div>
-          <div className="relative hero-text-media mt-12 w-64 h-64  md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px]">
+          <div className="relative hero-text-media mt-12 w-64 h-64  md:w-[250px] md:h-[250px] lg:w-[400px] lg:h-[400px]">
             <img
               src="https://avatars.githubusercontent.com/u/30069626?v=4"
               alt="big__image"

@@ -6,7 +6,7 @@ function Header() {
       <div
         className={`${styles.header__wrapper} mx-auto flex  md:flex-row flex-col justify-center md:justify-between items-center`}
         style={{
-          width: "85%",
+          width: "90%",
           height: "100%",
         }}
       >
@@ -26,7 +26,7 @@ function Header() {
               </a>
             </li>
             <li>
-              <a className="underline dark:text-white" href="#">
+              <a className="underline dark:text-white font-bold" href="#">
                 Contact
               </a>
             </li>
