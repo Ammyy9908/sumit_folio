@@ -22,7 +22,7 @@ export default function Document() {
           async
         ></script>
 
-        <script type="text/javascript" async>
+        <script type="text/javascript">
           dangerouslySetInnerHTML=
           {{
             __html: `
