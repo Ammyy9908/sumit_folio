@@ -2232,6 +2232,11 @@ react-is@^16.13.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-microsoft-clarity@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-microsoft-clarity/-/react-microsoft-clarity-1.1.2.tgz#d76611709d01231cc6b44272a82aea528425dfdb"
+  integrity sha512-89xn2gvQSO1LjrgaKBik0bBRwkebt8biWkS4K3DsdhYdJtVVYHoAa62JDE9Wth4A+Vt0DsfUeG75OfmrD7EcIA==
+
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"

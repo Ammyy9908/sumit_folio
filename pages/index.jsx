@@ -11,6 +11,8 @@ import {
 import { BsLinkedin } from "react-icons/bs";
 import { SiLinktree } from "react-icons/si";
 import Image from "next/image";
+import { clarity } from "react-microsoft-clarity";
+import React from "react";
 
 function SkillComponent({ image, heading, subheading }) {
   return (
@@ -58,6 +60,10 @@ function WorkComponent({ image, title, description }) {
 export default function Home() {
   const works = useWork();
   console.log("Works", works);
+
+  React.useEffect(() => {
+    clarity.init("ftyp3rae24");
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
