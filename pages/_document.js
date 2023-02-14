@@ -22,7 +22,7 @@ export default function Document() {
           async
         ></script>
 
-        <script type="text/javascript">
+        {/* <script type="text/javascript">
           dangerouslySetInnerHTML=
           {{
             __html: `
@@ -32,7 +32,7 @@ export default function Document() {
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "ftyp3rae24");`,
           }}
-        </script>
+        </script> */}
       </body>
     </Html>
   );
