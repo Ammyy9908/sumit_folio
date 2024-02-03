@@ -21,12 +21,15 @@ function Header() {
               </a>
             </li>
             <li>
-              <a className="underline dark:text-white" href="#">
+              <a className="underline dark:text-white" href="#work">
                 Work
               </a>
             </li>
             <li>
-              <a className="underline dark:text-white font-bold" href="#">
+              <a
+                className="underline dark:text-white font-bold"
+                href="#contact"
+              >
                 Contact
               </a>
             </li>

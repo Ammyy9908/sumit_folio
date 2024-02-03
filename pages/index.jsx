@@ -13,6 +13,7 @@ import { SiLinktree } from "react-icons/si";
 import Image from "next/image";
 import { clarity } from "react-microsoft-clarity";
 import React from "react";
+import { Toaster } from "react-hot-toast";
 
 function SkillComponent({ image, heading, subheading }) {
   return (
@@ -32,6 +33,7 @@ function SkillComponent({ image, heading, subheading }) {
 function WorkComponent({ image, title, description }) {
   return (
     <div
+      id="work"
       className={`${styles.work_component} group overflow-hidden flex flex-col items-center gap-3`}
     >
       <div className="work_thumb w-full h-[300px] md:h-[350px]  overflow-hidden relative cursor-pointer rounded-md">
@@ -313,6 +315,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
 
       <Footer />
     </div>
