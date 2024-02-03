@@ -264,34 +264,34 @@ export default function Home() {
           <SkillComponent
             image="/assets/product_design.png"
             heading="Product design"
-            subheading="This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com"
+            subheading="Product design involves the process of identifying a market opportunity, conceptualizing and designing a solution, and testing and refining the outcome. It encompasses the entire journey of creating a new product or improving an existing one, focusing on functionality, aesthetics, user experience, and usability. "
           />
           <SkillComponent
             image="/assets/art_direction.png"
             heading="Art direction"
-            subheading="This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com"
+            subheading="Art design, often seen as a subset of the broader field of visual arts, focuses on the creation of aesthetically pleasing and conceptually engaging visuals. It encompasses a wide range of practices, including graphic design, illustration, fine arts, and digital media, each contributing to the way ideas and messages are visually communicated and experienced."
           />
           <SkillComponent
             image="/assets/visual_design.png"
             heading="Visual design"
-            subheading="This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com"
+            subheading="Visual design focuses on the aesthetics of a site or product and its related materials by strategically implementing images, colors, fonts, and other elements. It aims to enhance usability and improve user experience through the thoughtful application of design principles and visual communication techniques."
           />
         </div>
         <div className="hidden dark:grid skill_section_wrapper w-full   grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           <SkillComponent
             image="/assets/dark_product_design.png"
             heading="Product design"
-            subheading="This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com"
+            subheading="Product design involves the process of identifying a market opportunity, conceptualizing and designing a solution, and testing and refining the outcome. It encompasses the entire journey of creating a new product or improving an existing one, focusing on functionality, aesthetics, user experience, and usability. "
           />
           <SkillComponent
             image="/assets/dark_art_direction.png"
             heading="Art direction"
-            subheading="This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com"
+            subheading="Art design, often seen as a subset of the broader field of visual arts, focuses on the creation of aesthetically pleasing and conceptually engaging visuals. It encompasses a wide range of practices, including graphic design, illustration, fine arts, and digital media, each contributing to the way ideas and messages are visually communicated and experienced."
           />
           <SkillComponent
             image="/assets/dark_visual_design.png"
             heading="Visual design"
-            subheading="This is a template Figma file, turned into code using Anima. Learn more at AnimaApp.com"
+            subheading="Visual design focuses on the aesthetics of a site or product and its related materials by strategically implementing images, colors, fonts, and other elements. It aims to enhance usability and improve user experience through the thoughtful application of design principles and visual communication techniques."
           />
         </div>
       </div>
