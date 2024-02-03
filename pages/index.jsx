@@ -30,7 +30,7 @@ function SkillComponent({ image, heading, subheading }) {
   );
 }
 
-function WorkComponent({ image, title, description }) {
+function WorkComponent({ image, title, description, repo_uri }) {
   return (
     <div
       id="work"
@@ -38,7 +38,7 @@ function WorkComponent({ image, title, description }) {
     >
       <div className="work_thumb w-full h-[300px] md:h-[350px]  overflow-hidden relative cursor-pointer rounded-md">
         <a
-          href="#"
+          href={repo_uri}
           className="w-12 h-12 bg-black absolute  z-50 text-white rounded-full flex items-center justify-center -bottom-12 group-hover:bottom-3 right-3 transition-all "
         >
           <AiFillGithub />
@@ -309,6 +309,7 @@ export default function Home() {
                   image={work.thumb}
                   title={work.title}
                   description={work.description}
+                  repo_uri={work.repo_uri}
                 />
               );
             })}
