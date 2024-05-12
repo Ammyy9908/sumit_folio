@@ -64,7 +64,7 @@ function Footer() {
 
     try {
       if (!name || !email || !message) {
-        toast.error("You must provide a all required fields!");
+        toast.error("You must provide all required fields!");
         setLoading(false);
         clearForm();
         return;

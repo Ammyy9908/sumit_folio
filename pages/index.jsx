@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import useWork from "../hooks/useWork";
 import styles from "../styles/Home.module.css";
+
 import {
   AiFillGithub,
   AiFillInstagram,
@@ -14,6 +15,8 @@ import Image from "next/image";
 import { clarity } from "react-microsoft-clarity";
 import React from "react";
 import { Toaster } from "react-hot-toast";
+import Navbar from "../components/Navbar";
+import { FaGithub } from "react-icons/fa";
 
 function SkillComponent({ image, heading, subheading }) {
   return (
@@ -81,10 +84,81 @@ export default function Home() {
         <meta name="author" content="Sumit Kumar" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
 
-      <div className="hero-section py-16">
+      {/* <Navbar /> */}
+
+      <div className="hero-section w-[90%] mx-auto flex flex-col md:flex-row  items-center justify-between py-32">
+        <div className="about col-span-6">
+          <p className="text-3xl md:text-5xl flex flex-col md:flex-row items-start md:items-center gap-2">
+            <span>Hello I`am</span>
+            <span className="font-bold">Sumit Kumar.</span>
+          </p>
+          <p className="text-3xl md:text-5xl flex items-start md:items-center gap-2">
+            <span className="font-bold">Backend</span>
+            <span>Developer</span>
+          </p>
+          <p className="text-3xl md:text-5xl flex items-start md:items-center gap-2">
+            <span>Based In</span>
+            <span className="font-bold">India.</span>
+          </p>
+          <p>
+            I help businesses and companies reach their goals by designing
+            user-centric digital products & interactive experiences.
+          </p>
+          <ul className="mt-5 flex items-center gap-4">
+            <li>
+              <a
+                href="#"
+                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
+              >
+                <FaGithub />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
+              >
+                <SiLinktree />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
+              >
+                <BsLinkedin />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
+              >
+                <AiFillInstagram />
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
+              >
+                <AiOutlineWhatsApp />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="dev-thumbnail col-span-3 mt-4">
+          <img
+            src="https://avatars.githubusercontent.com/u/30069626?v=4"
+            alt="big__image"
+            className="shadow-2xl rounded-full h-full w-full border-4 border-black"
+          />
+        </div>
+      </div>
+
+      {/* <div className="hero-section py-16">
         <div
           className={`${styles.hero_section_wrapper} mx-auto flex flex-col md:flex-row  items-center justify-between`}
         >
@@ -177,12 +251,10 @@ export default function Home() {
               alt="big__image"
               className="shadow-2xl rounded-full h-full w-full border-4 border-green-500"
             />
-            {/* <span className="cursor-pointer w-16 h-16  absolute top-2 right-[75px] rounded-full flex items-center justify-center shadow-2xl text-2xl">
-              <img src="/smiley.gif" alt="emoji" />
-            </span> */}
+           
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className={`${styles.brands_section} py-12 mx-auto`}>
         <div className="brand_section_wrapper w-full">
