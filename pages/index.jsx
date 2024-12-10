@@ -124,12 +124,9 @@ export default function Home() {
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
-              >
-                <BsLinkedin />
-              </a>
+             
+      
+<a className="libutton" href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=sumitbighaniya" target="_blank">Follow on LinkedIn</a>
             </li>
             <li>
               <a
