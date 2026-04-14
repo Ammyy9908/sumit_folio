@@ -2,75 +2,96 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import useWork from "../hooks/useWork";
-import styles from "../styles/Home.module.css";
 
-import {
-  AiFillGithub,
-  AiFillInstagram,
-  AiOutlineWhatsApp,
-} from "react-icons/ai";
-import { BsLinkedin } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
 import { SiLinktree } from "react-icons/si";
-import Image from "next/image";
+import { BsArrowUpRight } from "react-icons/bs";
 import { clarity } from "react-microsoft-clarity";
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import Navbar from "../components/Navbar";
 import { FaGithub } from "react-icons/fa";
+import Container from "../components/ui/Container";
+import Section from "../components/ui/Section";
+import Card from "../components/ui/Card";
+import Button from "../components/ui/Button";
+import Image from "next/image";
 
-function SkillComponent({ image, heading, subheading }) {
+function SkillCard({ image, heading, subheading }) {
   return (
-    <div
-      className={`${styles.skill_component} relative w-full flex flex-col items-center py-12 px-6 gap-3`}
-    >
-      <img src={image} alt="skill_image" />
-
-      <div className="skill_body mt-12 w-full text-center">
-        <h3 className="dark:text-white">{heading}</h3>
-        <p className="dark:text-white/50 ">{subheading}</p>
+    <Card className="h-full p-6">
+      <div className="flex items-start gap-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-black/5 dark:bg-white/10">
+          <Image src={image} alt="" width={32} height={32} />
+        </div>
+        <div>
+          <h3 className="text-base font-semibold text-black dark:text-white">
+            {heading}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-black/70 dark:text-white/70">
+            {subheading}
+          </p>
+        </div>
       </div>
-    </div>
+    </Card>
   );
 }
 
-function WorkComponent({ image, title, description, repo_uri }) {
+function WorkCard({ image, title, description, repo_uri }) {
   return (
-    <div
-      id="work"
-      className={`${styles.work_component} group overflow-hidden flex flex-col items-center gap-3`}
-    >
-      <div className="work_thumb w-full h-[300px] md:h-[350px]  overflow-hidden relative cursor-pointer rounded-md">
+    <Card className="group overflow-hidden p-0">
+      <div className="relative h-52 w-full overflow-hidden sm:h-60">
+        {image ? (
+          <Image
+            src={image}
+            alt=""
+            layout="fill"
+            objectFit="cover"
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover transition duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-black/10 dark:from-white/5 dark:to-white/10" />
+        )}
         <a
           href={repo_uri}
-          className="w-12 h-12 bg-black absolute  z-50 text-white rounded-full flex items-center justify-center -bottom-12 group-hover:bottom-3 right-3 transition-all "
+          target="_blank"
+          rel="noreferrer"
+          className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/80 text-white backdrop-blur transition hover:bg-black"
+          aria-label="View repository"
         >
           <AiFillGithub />
         </a>
-        <img
-          src={image}
-          alt="work_image"
-          className="w-full h-full  absolute inset-0 hover:scale-110 rounded-md object-cover"
-        />
       </div>
-      <div className="work_body w-full text-left py-3">
-        <h3 className="dark:text-white text-xl">{title}</h3>
-        <p className="dark:text-white/50 text-sm text-black/40">
+      <div className="p-6">
+        <h3 className="text-base font-semibold text-black dark:text-white">
+          {title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-black/70 dark:text-white/70">
           {description}
         </p>
+        <div className="mt-4">
+          <a
+            href={repo_uri}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-black/80 hover:text-black dark:text-white/80 dark:hover:text-white"
+          >
+            View repo <BsArrowUpRight />
+          </a>
+        </div>
       </div>
-    </div>
+    </Card>
   );
 }
 
 export default function Home() {
   const works = useWork();
-  console.log("Works", works);
 
   React.useEffect(() => {
     clarity.init("ftyp3rae24");
   }, []);
   return (
-    <div className={styles.container}>
+    <div id="top" className="relative min-h-screen">
       <Head>
         <title>Sumit</title>
         <meta
@@ -86,306 +107,160 @@ export default function Home() {
       </Head>
       <Header />
 
-      {/* <Navbar /> */}
+      <main>
+        <section className="py-16 sm:py-24">
+          <Container>
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+              <div>
+                <p className="text-xs font-semibold tracking-[0.22em] text-emerald-200/70 terminal-glow">
+                  whoami
+                </p>
+                <h1 className="mt-3 text-4xl font-semibold tracking-tight text-emerald-50 terminal-glow sm:text-5xl">
+                  Backend Engineer. Linux enjoyer. Builder.
+                </h1>
+                <p className="mt-4 max-w-prose text-base leading-relaxed text-emerald-200/70">
+                  I design pragmatic backend systems, ship clean APIs, and keep things
+                  maintainable. Think: reliability first, noise last.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Button href="#work">See work</Button>
+                  <Button variant="ghost" href="#contact">
+                    Contact
+                  </Button>
+                </div>
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://github.com/ammyy9908"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-400/10 text-emerald-100 hover:bg-emerald-400/15"
+                    aria-label="GitHub"
+                  >
+                    <FaGithub />
+                  </a>
+                  <a
+                    href="https://linktr.ee/sumitkumarbig"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-400/10 text-emerald-100 hover:bg-emerald-400/15"
+                    aria-label="Linktree"
+                  >
+                    <SiLinktree />
+                  </a>
+                </div>
+              </div>
 
-      <div className="hero-section w-[90%] mx-auto flex flex-col md:flex-row  items-center justify-between py-32">
-        <div className="about col-span-6">
-          <p className="text-3xl md:text-5xl flex flex-col md:flex-row items-start md:items-center gap-2">
-            <span>Hello I`am</span>
-            <span className="font-bold">Sumit Kumar.</span>
-          </p>
-          <p className="text-3xl md:text-5xl flex items-start md:items-center gap-2">
-            <span className="font-bold">Backend</span>
-            <span>Developer</span>
-          </p>
-          <p className="text-3xl md:text-5xl flex items-start md:items-center gap-2">
-            <span>Based In</span>
-            <span className="font-bold">India.</span>
-          </p>
-          <p>
-            I help businesses and companies reach their goals by designing
-            user-centric digital products & interactive experiences.
-          </p>
-          <ul className="mt-5 flex items-center gap-4">
-            <li>
-              <a
-                href="#"
-                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
-              >
-                <FaGithub />
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
-              >
-                <SiLinktree />
-              </a>
-            </li>
-            <li>
-             
-      
-<a className="libutton" href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=sumitbighaniya" target="_blank">Follow on LinkedIn</a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
-              >
-                <AiFillInstagram />
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="flex w-8 h-8 bg-black text-white rounded-md items-center justify-center"
-              >
-                <AiOutlineWhatsApp />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="dev-thumbnail col-span-3 mt-4">
-          <img
-            src="https://avatars.githubusercontent.com/u/30069626?v=4"
-            alt="big__image"
-            className="shadow-2xl rounded-full h-full w-full border-4 border-black"
-          />
-        </div>
-      </div>
-
-      {/* <div className="hero-section py-16">
-        <div
-          className={`${styles.hero_section_wrapper} mx-auto flex flex-col md:flex-row  items-center justify-between`}
-        >
-          <div className="hero-section-text">
-            <p
-              style={{
-                fontFamily: "Eblque-Semi-Bold",
-                fontSize: 20,
-              }}
-              className="dark:text-white"
-            >
-              Freelancer | Web developer{" "}
-            </p>
-            <h1
-              style={{
-                fontFamily: "Eblque-Semi-Bold",
-                marginTop: 46,
-                fontWeight: 600,
-                marginBottom: 50,
-              }}
-              className="dark:text-white md:w-[453px]"
-            >
-              Web Developer
-            </h1>
-            <p
-              style={{
-                fontFamily: "Eblque-Regular",
-              }}
-              className="w-full md:w-[453px] dark:text-white/90"
-            >
-              I help businesses and companies reach their goals by designing
-              user-centric digital products & interactive experiences.
-            </p>
-            <div className="my-3 flex items-center gap-3  justify-center md:justify-start">
-              <a
-                href="https://github.com/ammyy9908"
-                target={"_blank"}
-                rel="noreferrer"
-                className="group w-12 h-12 bg-black dark:bg-white dark:text-black  z-50 text-white rounded-full flex items-center justify-center transition-all "
-              >
-                <span className="group-hover:text-2xl">
-                  <AiFillGithub />
-                </span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/sumitbighaniya/"
-                target={"_blank"}
-                rel="noreferrer"
-                className="group w-12 h-12 bg-blue-700  dark:text-white  z-50 text-white rounded-full flex items-center justify-center transition-all "
-              >
-                <span className="group-hover:text-2xl">
-                  <BsLinkedin />
-                </span>
-              </a>
-              <a
-                href="https://linktr.ee/sumitkumarbig"
-                target={"_blank"}
-                rel="noreferrer"
-                className="group w-12 h-12 bg-green-500 dark:bg-white dark:text-black  z-50 text-white rounded-full flex items-center justify-center transition-all "
-              >
-                <span className="group-hover:text-2xl">
-                  <SiLinktree />
-                </span>
-              </a>
-              <a
-                href="https://wa.me/917406644532?text=Hi 🥳"
-                target={"_blank"}
-                rel="noreferrer"
-                className="group w-12 h-12 bg-green-600   z-50 text-white rounded-full flex items-center justify-center  transition-all "
-              >
-                <span className="group-hover:text-2xl">
-                  <AiOutlineWhatsApp />
-                </span>
-              </a>
-              <a
-                href="https://instagram.com/sumitbighaniya"
-                target={"_blank"}
-                rel="noreferrer"
-                className="group w-12 h-12 bg-red-500   z-50 text-white rounded-full flex items-center justify-center  transition-all "
-              >
-                <span className="group-hover:text-2xl">
-                  <AiFillInstagram />
-                </span>
-              </a>
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative">
+                  <div className="absolute -inset-6 rounded-full bg-emerald-400/10 blur-2xl" />
+                  <Image
+                    src="https://avatars.githubusercontent.com/u/30069626?v=4"
+                    alt="Sumit Kumar"
+                    width={288}
+                    height={288}
+                    className="relative h-56 w-56 rounded-full border border-emerald-300/20 object-cover shadow-[0_0_0_1px_rgba(34,197,94,0.10)_inset,0_40px_80px_rgba(0,0,0,0.45)] sm:h-72 sm:w-72"
+                  />
+                </div>
+              </div>
             </div>
+          </Container>
+        </section>
+
+        <Section
+          id="about"
+          eyebrow="About"
+          title="A modular, maintainable approach"
+          subtitle="I like building systems that are easy to evolve: reusable components, consistent layout primitives, and clear information architecture."
+          className="bg-black/[0.02] dark:bg-white/[0.03]"
+        >
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <Card>
+              <p className="text-sm font-semibold text-black dark:text-white">
+                Principles
+              </p>
+              <p className="mt-2 text-sm text-black/70 dark:text-white/70">
+                Reusable blocks, predictable spacing, and clear hierarchy.
+              </p>
+            </Card>
+            <Card>
+              <p className="text-sm font-semibold text-black dark:text-white">
+                Focus
+              </p>
+              <p className="mt-2 text-sm text-black/70 dark:text-white/70">
+                Backend APIs, performance, and developer experience.
+              </p>
+            </Card>
+            <Card>
+              <p className="text-sm font-semibold text-black dark:text-white">
+                Collaboration
+              </p>
+              <p className="mt-2 text-sm text-black/70 dark:text-white/70">
+                Shipping with speed while staying readable and testable.
+              </p>
+            </Card>
           </div>
-          <div className="relative hero-text-media mt-12 w-64 h-64  md:w-[250px] md:h-[250px] lg:w-[400px] lg:h-[400px]">
-            <img
-              src="https://avatars.githubusercontent.com/u/30069626?v=4"
-              alt="big__image"
-              className="shadow-2xl rounded-full h-full w-full border-4 border-green-500"
+        </Section>
+
+        <Section
+          id="skills"
+          eyebrow="Skills"
+          title="What I do"
+          subtitle="A compact set of capabilities, presented as modular cards."
+        >
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <SkillCard
+              image="/assets/product_design.png"
+              heading="Product thinking"
+              subheading="Pragmatic trade-offs, clear requirements, and an eye for usability."
             />
-           
+            <SkillCard
+              image="/assets/art_direction.png"
+              heading="System design"
+              subheading="APIs, data modeling, and maintainable service boundaries."
+            />
+            <SkillCard
+              image="/assets/visual_design.png"
+              heading="Engineering craft"
+              subheading="Readable code, performance-minded choices, and good tooling."
+            />
           </div>
-        </div>
-      </div> */}
+        </Section>
 
-      {/* <div className={`${styles.brands_section} py-12 mx-auto`}>
-        <div className="brand_section_wrapper w-full">
-          <ul className="w-full  items-center justify-between flex md:flex-row flex-col gap-12">
-            <li>
-              <img
-                src="/assets/google.png"
-                alt="google"
-                className="dark:hidden"
-              />
-              <img
-                src="/assets/dark_google.png"
-                alt="google"
-                className="hidden dark:block"
-              />
-            </li>
-            <li>
-              <img src="/assets/nike.png" alt="nike" className="dark:hidden" />
-              <img
-                src="/assets/dark_nike.png"
-                alt="nike"
-                className="hidden dark:block"
-              />
-            </li>
-            <li>
-              <img
-                src="/assets/samsung.png"
-                alt="samsung"
-                className="dark:hidden"
-              />
-              <img
-                src="/assets/dark_samsung.png"
-                alt="samsung"
-                className="hidden dark:block"
-              />
-            </li>
-            <li>
-              <img
-                src="/assets/apple.png"
-                alt="apple"
-                className="dark:hidden"
-              />
-              <img
-                src="/assets/dark_apple.png"
-                alt="apple"
-                className="hidden dark:block"
-              />
-            </li>
-            <li>
-              <img
-                src="/assets/intercom.png"
-                alt="intercom"
-                className="dark:hidden"
-              />
-              <img
-                src="/assets/dark_intercom.png"
-                alt="intercom"
-                className="hidden dark:block"
-              />
-            </li>
-            <li>
-              <img
-                src="/assets/adidas.png"
-                alt="adidas"
-                className="dark:hidden"
-              />
-              <img
-                src="/assets/dark_adidas.png"
-                alt="adidas"
-                className="hidden dark:block"
-              />
-            </li>
-          </ul>
-        </div>
-      </div> */}
-
-      <div className={`${styles.skill_section} py-12 mx-auto`}>
-        <div className="dark:hidden skill_section_wrapper w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          <SkillComponent
-            image="/assets/product_design.png"
-            heading="Product design"
-            subheading="Product design involves the process of identifying a market opportunity, conceptualizing and designing a solution, and testing and refining the outcome. It encompasses the entire journey of creating a new product or improving an existing one, focusing on functionality, aesthetics, user experience, and usability. "
-          />
-          <SkillComponent
-            image="/assets/art_direction.png"
-            heading="Art direction"
-            subheading="Art design, often seen as a subset of the broader field of visual arts, focuses on the creation of aesthetically pleasing and conceptually engaging visuals. It encompasses a wide range of practices, including graphic design, illustration, fine arts, and digital media, each contributing to the way ideas and messages are visually communicated and experienced."
-          />
-          <SkillComponent
-            image="/assets/visual_design.png"
-            heading="Visual design"
-            subheading="Visual design focuses on the aesthetics of a site or product and its related materials by strategically implementing images, colors, fonts, and other elements. It aims to enhance usability and improve user experience through the thoughtful application of design principles and visual communication techniques."
-          />
-        </div>
-        <div className="hidden dark:grid skill_section_wrapper w-full   grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          <SkillComponent
-            image="/assets/dark_product_design.png"
-            heading="Product design"
-            subheading="Product design involves the process of identifying a market opportunity, conceptualizing and designing a solution, and testing and refining the outcome. It encompasses the entire journey of creating a new product or improving an existing one, focusing on functionality, aesthetics, user experience, and usability. "
-          />
-          <SkillComponent
-            image="/assets/dark_art_direction.png"
-            heading="Art direction"
-            subheading="Art design, often seen as a subset of the broader field of visual arts, focuses on the creation of aesthetically pleasing and conceptually engaging visuals. It encompasses a wide range of practices, including graphic design, illustration, fine arts, and digital media, each contributing to the way ideas and messages are visually communicated and experienced."
-          />
-          <SkillComponent
-            image="/assets/dark_visual_design.png"
-            heading="Visual design"
-            subheading="Visual design focuses on the aesthetics of a site or product and its related materials by strategically implementing images, colors, fonts, and other elements. It aims to enhance usability and improve user experience through the thoughtful application of design principles and visual communication techniques."
-          />
-        </div>
-      </div>
-
-      <div className={`${styles.work_section} py-12 mx-auto`}>
-        <div className="work_section_wrapper w-full">
-          <div className="work_header text-center mb-12">
-            <h3 className="text-2xl dark:text-white">Latest work</h3>
-          </div>
-          <div className="works w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {works.map((work, index) => {
-              return (
-                <WorkComponent
-                  key={index}
+        <Section
+          id="work"
+          eyebrow="Work"
+          title="Latest work"
+          subtitle="Projects pulled from your Firestore `works` collection."
+          className="bg-black/[0.02] dark:bg-white/[0.03]"
+        >
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {works.length === 0 ? (
+              <Card className="md:col-span-2 lg:col-span-3">
+                <p className="text-sm font-semibold text-black dark:text-white">
+                  No projects found yet
+                </p>
+                <p className="mt-2 text-sm text-black/70 dark:text-white/70">
+                  Add documents to the Firestore collection <code>works</code> with{" "}
+                  <code>title</code>, <code>description</code>, <code>thumb</code>,
+                  and <code>repo_uri</code>.
+                </p>
+              </Card>
+            ) : (
+              works.map((work, index) => (
+                <WorkCard
+                  key={work.repo_uri ?? index}
                   image={work.thumb}
                   title={work.title}
                   description={work.description}
                   repo_uri={work.repo_uri}
                 />
-              );
-            })}
+              ))
+            )}
           </div>
-        </div>
-      </div>
-      <Toaster position="top-center" reverseOrder={false} />
+        </Section>
+
+        <Toaster position="top-center" reverseOrder={false} />
+      </main>
 
       <Footer />
     </div>

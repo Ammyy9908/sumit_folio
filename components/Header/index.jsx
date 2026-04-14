@@ -1,42 +1,44 @@
 import React from "react";
-import styles from "./index.module.css";
+import Container from "../ui/Container";
+import Button from "../ui/Button";
 function Header() {
   return (
-    <div className={`${styles.header}`}>
-      <div
-        className={`${styles.header__wrapper} mx-auto flex  md:flex-row flex-col justify-center md:justify-between items-center`}
-        style={{
-          width: "90%",
-          height: "100%",
-        }}
-      >
-        <a href="#" className="dark:text-white">
-          Sumit
+    <header className="sticky top-0 z-30 border-b border-emerald-300/15 bg-black/55 backdrop-blur">
+      <Container className="flex h-16 items-center justify-between">
+        <a
+          href="#top"
+          className="text-base font-semibold tracking-tight text-emerald-50 terminal-glow"
+        >
+          sumit@folio:~$
         </a>
-        <nav className="hidden md:block">
-          <ul className="flex items-center gap-3">
-            <li>
-              <a className="underline dark:text-white" href="#">
-                About
-              </a>
-            </li>
-            <li>
-              <a className="underline dark:text-white" href="#work">
-                Work
-              </a>
-            </li>
-            <li>
-              <a
-                className="underline dark:text-white font-bold"
-                href="#contact"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+        <nav className="hidden items-center gap-7 md:flex">
+          <a
+            href="#about"
+            className="terminal-link text-sm font-medium"
+          >
+            About
+          </a>
+          <a
+            href="#skills"
+            className="terminal-link text-sm font-medium"
+          >
+            Skills
+          </a>
+          <a
+            href="#work"
+            className="terminal-link text-sm font-medium"
+          >
+            Work
+          </a>
+          <Button variant="ghost" href="#contact">
+            Contact
+          </Button>
         </nav>
-      </div>
-    </div>
+        <Button className="md:hidden" variant="ghost" href="#contact">
+          Contact
+        </Button>
+      </Container>
+    </header>
   );
 }
 

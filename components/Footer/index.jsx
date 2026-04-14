@@ -1,16 +1,13 @@
 import React from "react";
-import styles from "./index.module.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Container from "../ui/Container";
+import Card from "../ui/Card";
+import Button from "../ui/Button";
 
 function SmallField({ type, name, value, setValue, placeholder }) {
   return (
-    <div
-      className="small-field bg-gray-100 dark:bg-gray-700 w-full rounded-md dark:rounded-none"
-      style={{
-        height: 70,
-      }}
-    >
+    <div className="w-full">
       <input
         type={type}
         name={name}
@@ -19,7 +16,7 @@ function SmallField({ type, name, value, setValue, placeholder }) {
         value={value}
         autoComplete="off"
         onChange={(e) => setValue(e.target.value)}
-        className="rounded-md dark:rounded-none h-full w-full bg-transparent px-3"
+        className="h-12 w-full rounded-xl border border-emerald-300/20 bg-black/40 px-4 text-sm text-emerald-50 outline-none placeholder:text-emerald-200/35 focus:ring-2 focus:ring-emerald-400/30"
       />
     </div>
   );
@@ -27,12 +24,7 @@ function SmallField({ type, name, value, setValue, placeholder }) {
 
 function LargeField({ name, value, setValue, placeholder }) {
   return (
-    <div
-      className="small-field bg-gray-100 dark:bg-gray-700 w-full rounded-md dark:rounded-none"
-      style={{
-        height: 215,
-      }}
-    >
+    <div className="w-full">
       <textarea
         name={name}
         id={name}
@@ -40,8 +32,8 @@ function LargeField({ name, value, setValue, placeholder }) {
         value={value}
         autoComplete="off"
         onChange={(e) => setValue(e.target.value)}
-        className="h-full w-full bg-transparent px-3 py-3 resize-none rounded-md dark:rounded-none"
-      ></textarea>
+        className="h-36 w-full resize-none rounded-xl border border-emerald-300/20 bg-black/40 px-4 py-3 text-sm text-emerald-50 outline-none placeholder:text-emerald-200/35 focus:ring-2 focus:ring-emerald-400/30"
+      />
     </div>
   );
 }
@@ -86,67 +78,85 @@ function Footer() {
     }
   };
   return (
-    <footer
-      id="contact"
-      className={`${styles.footer} py-12 grid grid-cols-1 lg:grid-cols-2 gap-32`}
-    >
-      <div className="about-footer">
-        <h3 className="text-3xl mb-8">Lets work together</h3>
-        <p> Have a project idea? I am available for new projects! </p>
-      </div>
-      <form
-        className="contact-footer flex flex-col gap-3 items-start"
-        onSubmit={handleContact}
-      >
-        <SmallField
-          value={name}
-          setValue={setName}
-          type="text"
-          placeholder="Name"
-          name="Name"
-        />
-        <SmallField
-          value={email}
-          setValue={setEmail}
-          type="email"
-          placeholder="Email"
-          name="Email"
-        />
-        <LargeField
-          value={message}
-          setValue={setMessage}
-          placeholder="Type your message here"
-          name="message"
-        />
-        <button
-          type="submit"
-          className="px-3 py-2 bg-black/80 dark:bg-white dark:text-black text-white w-32 h-12 cursor-pointer flex items-center justify-center gap-3"
-        >
-          {loading && (
-            <svg
-              class="animate-spin -ml-1 mr-3 h-5 w-5 text-black"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
+    <footer id="contact" className="border-t border-emerald-300/15 py-16">
+      <Container>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h3 className="text-2xl font-semibold tracking-tight text-emerald-50 terminal-glow sm:text-3xl">
+              Let’s work together
+            </h3>
+            <p className="mt-3 max-w-prose text-base leading-relaxed text-emerald-200/70">
+              Have a project idea? I’m available for new projects and collaborations.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button variant="ghost" href="#work">
+                See work
+              </Button>
+              <Button href="mailto:hello@yourdomain.com">Email me</Button>
+            </div>
+          </div>
+
+          <Card className="p-6 sm:p-8">
+            <form
+              className="flex flex-col gap-4"
+              method="post"
+              action="/api/contact"
+              onSubmit={handleContact}
             >
-              <circle
-                class="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                stroke-width="4"
-              ></circle>
-              <path
-                class="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          )}
-          {!loading && <span>Submit</span>}
-        </button>
-      </form>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <SmallField
+                  value={name}
+                  setValue={setName}
+                  type="text"
+                  placeholder="Name"
+                  name="Name"
+                />
+                <SmallField
+                  value={email}
+                  setValue={setEmail}
+                  type="email"
+                  placeholder="Email"
+                  name="Email"
+                />
+              </div>
+              <LargeField
+                value={message}
+                setValue={setMessage}
+                placeholder="Type your message here"
+                name="message"
+              />
+              <Button
+                as="button"
+                type="submit"
+                className="h-11 w-full sm:w-40"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <span className="relative inline-flex h-2.5 w-2.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300/70 opacity-75" />
+                      <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-300" />
+                    </span>
+                    Sending…
+                  </>
+                ) : (
+                  "Send"
+                )}
+              </Button>
+            </form>
+          </Card>
+        </div>
+
+        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-emerald-300/15 pt-8 text-sm text-emerald-200/60 sm:flex-row sm:items-center">
+          <p>© {new Date().getFullYear()} Sumit Kumar</p>
+          <a
+            className="terminal-link"
+            href="#top"
+          >
+            Back to top
+          </a>
+        </div>
+      </Container>
     </footer>
   );
 }
