@@ -83,10 +83,10 @@ function Footer() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <h3 className="text-2xl font-semibold tracking-tight text-emerald-50 terminal-glow sm:text-3xl">
-              Let’s work together
+              Request freelance work
             </h3>
             <p className="mt-3 max-w-prose text-base leading-relaxed text-emerald-200/70">
-              Have a project idea? I’m available for new projects and collaborations.
+              Share your idea, timeline, and budget range. I’ll reply with a plan and next steps.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button variant="ghost" href="#work">
@@ -122,7 +122,7 @@ function Footer() {
               <LargeField
                 value={message}
                 setValue={setMessage}
-                placeholder="Type your message here"
+                placeholder="What are you building? Include scope, timeline, and budget range."
                 name="message"
               />
               <Button

@@ -38,49 +38,42 @@ function SkillCard({ image, heading, subheading }) {
 
 function WorkCard({ image, title, description, repo_uri }) {
   return (
-    <Card className="group overflow-hidden p-0">
-      <div className="relative h-52 w-full overflow-hidden sm:h-60">
-        {image ? (
-          <Image
-            src={image}
-            alt=""
-            layout="fill"
-            objectFit="cover"
-            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-            className="object-cover transition duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-black/10 dark:from-white/5 dark:to-white/10" />
-        )}
+    <div className="terminal-panel shine-hover group rounded-2xl p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <h3 className="truncate text-base font-semibold text-emerald-50 terminal-glow">
+            {title}
+          </h3>
+          <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-emerald-200/70">
+            {description}
+          </p>
+        </div>
         <a
           href={repo_uri}
           target="_blank"
           rel="noreferrer"
-          className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/80 text-white backdrop-blur transition hover:bg-black"
+          className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-400/10 text-emerald-100 transition hover:bg-emerald-400/15"
           aria-label="View repository"
         >
           <AiFillGithub />
         </a>
       </div>
-      <div className="p-6">
-        <h3 className="text-base font-semibold text-black dark:text-white">
-          {title}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-black/70 dark:text-white/70">
-          {description}
-        </p>
-        <div className="mt-4">
-          <a
-            href={repo_uri}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-black/80 hover:text-black dark:text-white/80 dark:hover:text-white"
-          >
-            View repo <BsArrowUpRight />
-          </a>
+
+      <div className="mt-5 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 text-xs text-emerald-200/60">
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80 shadow-[0_0_14px_rgba(34,197,94,0.35)]" />
+          <span className="truncate">{image ? "thumb: set" : "thumb: none"}</span>
         </div>
+        <a
+          href={repo_uri}
+          target="_blank"
+          rel="noreferrer"
+          className="terminal-link inline-flex items-center gap-2 text-sm font-semibold"
+        >
+          View repo <BsArrowUpRight />
+        </a>
       </div>
-    </Card>
+    </div>
   );
 }
 
@@ -116,11 +109,12 @@ export default function Home() {
                   whoami
                 </p>
                 <h1 className="mt-3 text-4xl font-semibold tracking-tight text-emerald-50 terminal-glow sm:text-5xl">
-                  Backend Engineer. Linux enjoyer. Builder.
+                  Backend Engineer (Go • Kubernetes • Distributed Systems)
                 </h1>
                 <p className="mt-4 max-w-prose text-base leading-relaxed text-emerald-200/70">
-                  I design pragmatic backend systems, ship clean APIs, and keep things
-                  maintainable. Think: reliability first, noise last.
+                  3+ years building and operating microservices on Kubernetes—shipping
+                  reliable APIs, improving performance, and running production systems
+                  with 99.9% uptime.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button href="#work">See work</Button>
@@ -204,26 +198,62 @@ export default function Home() {
         <Section
           id="skills"
           eyebrow="Skills"
-          title="What I do"
-          subtitle="A compact set of capabilities, presented as modular cards."
+          title="Core skills"
+          subtitle="Golang backend engineering, Kubernetes operations, and performance tuning."
         >
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <SkillCard
               image="/assets/product_design.png"
-              heading="Product thinking"
-              subheading="Pragmatic trade-offs, clear requirements, and an eye for usability."
+              heading="Infrastructure & Orchestration"
+              subheading="Kubernetes, Docker, AWS (EKS/EC2/SNS/SQS), Helm, Terraform, Ansible."
             />
             <SkillCard
               image="/assets/art_direction.png"
-              heading="System design"
-              subheading="APIs, data modeling, and maintainable service boundaries."
+              heading="Distributed systems (Golang)"
+              subheading="Microservices, async messaging (SNS/SQS/RabbitMQ), caching (Redis), observability and incident response."
             />
             <SkillCard
               image="/assets/visual_design.png"
-              heading="Engineering craft"
-              subheading="Readable code, performance-minded choices, and good tooling."
+              heading="CI/CD & Security"
+              subheading="GitOps (ArgoCD), Bitbucket/GitLab CI/Jenkins, dependency scanning (BlackDuck), secrets management."
             />
           </div>
+        </Section>
+
+        <Section
+          id="stack"
+          eyebrow="Tech stack"
+          title="Tools I ship with"
+          subtitle="A quick snapshot of the technologies I use day-to-day."
+          className="bg-black/[0.02] dark:bg-white/[0.03]"
+        >
+          <Card className="p-6 sm:p-8">
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Golang",
+                "Gin",
+                "Kubernetes",
+                "Docker",
+                "AWS (EKS/EC2/S3/IAM)",
+                "ArgoCD (GitOps)",
+                "Terraform",
+                "Helm",
+                "Redis",
+                "RabbitMQ",
+                "Postgres",
+                "MongoDB",
+                "SNS/SQS",
+                "Jenkins / GitLab CI / Bitbucket",
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-emerald-300/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-100"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </Card>
         </Section>
 
         <Section
@@ -256,6 +286,43 @@ export default function Home() {
                 />
               ))
             )}
+          </div>
+        </Section>
+
+        <Section
+          id="freelance"
+          eyebrow="Freelancing"
+          title="Have an idea? Let’s ship it."
+          subtitle="If you’re building a product or need backend help, send a quick request — I’ll reply with a plan and timeline."
+        >
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <Card className="lg:col-span-2">
+              <div className="space-y-3 text-sm text-emerald-200/70">
+                <p className="text-emerald-50 terminal-glow">
+                  What you can request:
+                </p>
+                <ul className="list-disc space-y-2 pl-5">
+                  <li>Backend APIs & microservices (Golang)</li>
+                  <li>Kubernetes / EKS deployments + GitOps</li>
+                  <li>Performance & reliability improvements</li>
+                  <li>Async pipelines (SQS/SNS/RabbitMQ) + Redis caching</li>
+                </ul>
+              </div>
+            </Card>
+            <Card>
+              <p className="text-sm font-semibold text-emerald-50 terminal-glow">
+                Quick start
+              </p>
+              <p className="mt-2 text-sm text-emerald-200/70">
+                Share scope + timeline + budget range.
+              </p>
+              <div className="mt-5 flex flex-col gap-3">
+                <Button href="#contact">Request freelance work</Button>
+                <Button variant="ghost" href="#work">
+                  Review projects
+                </Button>
+              </div>
+            </Card>
           </div>
         </Section>
 
