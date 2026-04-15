@@ -15,7 +15,7 @@ export default function Document() {
           data-id="sb78639V"
           data-description="Support me on Buy me a coffee!"
           data-message="Thanks for visiting! now you can buy me a coffee!"
-          data-color="#FFDD00"
+          data-color="#25ff9bb3"
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
